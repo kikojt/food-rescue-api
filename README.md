@@ -1,42 +1,77 @@
-# Slim Framework 4 Skeleton Application
+# Food Rescue API
 
-[![Coverage Status](https://coveralls.io/repos/github/slimphp/Slim-Skeleton/badge.svg?branch=master)](https://coveralls.io/github/slimphp/Slim-Skeleton?branch=master)
+A RESTful API for a food rescue platform, developed as part of a university coursework assignment. The API provides authentication, partner management, daily offers, and purchase operations for client applications.
 
-Use this skeleton application to quickly setup and start working on a new Slim Framework 4 application. This application uses the latest Slim 4 with Slim PSR-7 implementation and PHP-DI container implementation. It also uses the Monolog logger.
+## Features
 
-This skeleton application was built for Composer. This makes setting up a new Slim Framework application quick and easy.
+### Authentication
 
-## Install the Application
+- User registration
+- Secure login
+- Token-based authentication
+- Logout
 
-Run this command from the directory in which you want to install your new Slim Framework application. You will require PHP 7.4 or newer.
+### Entities
 
-```bash
-composer create-project slim/slim-skeleton [my-app-name]
-```
+- Retrieve active partners
+- Retrieve partners with available offers
+- View partner details
 
-Replace `[my-app-name]` with the desired directory name for your new application. You'll want to:
+### Offers
 
-* Point your virtual host document root to your new application's `public/` directory.
-* Ensure `logs/` is web writable.
+- Retrieve available offers
+- Retrieve offers by partner
+- Purchase offers
 
-To run the application in development, you can run these commands 
+### Purchases
 
-```bash
-cd [my-app-name]
-composer start
-```
+- View user purchases
+- Cancel purchases (same-day only)
 
-Or you can use `docker-compose` to run the app with `docker`, so you can run these commands:
-```bash
-cd [my-app-name]
-docker-compose up -d
-```
-After that, open `http://localhost:8080` in your browser.
+## Technologies
 
-Run this command in the application directory to run the test suite
+- PHP
+- Slim Framework 4 Skeleton Application
+- MySQL
+- PDO
+- JSON
+- REST API
 
-```bash
-composer test
-```
+## Security
 
-That's it! Now go build something cool.
+- Token-based authentication
+- Authorization middleware
+- Password hashing
+- Prepared Statements (PDO)
+- Input validation
+
+## API Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/users/` | Register user |
+| PATCH | `/api/users/` | Authenticate user |
+| PATCH | `/api/users/logout.php` | Logout |
+| GET | `/api/entities/` | Active partners |
+| GET | `/api/entities/withoffers/` | Partners with offers |
+| GET | `/api/entities/{id}` | Partner details |
+| GET | `/api/entities/offers/{id}` | Partner offers |
+| GET | `/api/entities/offers/` | All available offers |
+| POST | `/api/entities/offers/buy/` | Purchase offer |
+| GET | `/api/users/purchases/` | Purchase history |
+| PATCH | `/api/users/purchases/` | Cancel purchase |
+
+## Testing
+
+The API can be tested using:
+
+- REST Client (VS Code)
+- Postman
+
+## Copyright
+
+© 2026 Francisco Rodrigues. All rights reserved.
+
+This project was developed as part of a university coursework assignment and is published for portfolio purposes only.
+
+The source code, documentation, and other project materials may not be copied, modified, redistributed, or used without the author's prior written permission.
